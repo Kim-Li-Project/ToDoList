@@ -34,8 +34,9 @@ dotnet test tests/TodoList.Api.Tests/TodoList.Api.Tests.csproj
 
 
 ## Frontend
-1. Angular
-
+1. Angular 22.1.7
+2. Node.js 22.22.3
+3. npm 12.0.2
 
 
 ## Running the Application
@@ -48,7 +49,7 @@ The frontend and backend run as separate processes during development.
 dotnet restore backend/TodoList.slnx
 dotnet run --project backend/src/TodoList.Api/TodoList.Api.csproj
 ```
-#API 
+API 
 http://localhost:5167
 Swagger UI:
 http://localhost:5167/swagger

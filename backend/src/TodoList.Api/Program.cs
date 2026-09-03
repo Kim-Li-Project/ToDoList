@@ -1,3 +1,7 @@
+using TodoList.Application.Interfaces;
+using TodoList.Application.Services;
+using TodoList.Infrastructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +9,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddSingleton<
+    ITodoRepository,
+    TodoRepository>();
+
+builder.Services.AddScoped<
+    ITodoService,
+    TodoService>();
 
 var app = builder.Build();
 

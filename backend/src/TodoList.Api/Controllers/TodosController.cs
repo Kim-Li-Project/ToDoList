@@ -7,7 +7,7 @@ namespace TodoList.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public sealed class TodosController : ControllerBase
+public class TodosController : ControllerBase
 {
     private readonly ITodoService _todoService;
 
@@ -36,6 +36,6 @@ public sealed class TodosController : ControllerBase
     [HttpDelete("{id:guid}")]
     public async Task<ActionResult<bool>> Delete(Guid id, CancellationToken cancellationToken)
     {
-        return await _todoService.DeleteAsync(id, cancellationToken) ? Ok() : NotFound();
+        return await _todoService.DeleteAsync(id, cancellationToken) ? NoContent() : NotFound();
     }
 }

@@ -17,7 +17,7 @@ public sealed class TodoService : ITodoService
     {
         var todos = await _todoRepository.GetAllAsync(cancellationToken);
 
-        return todos.OrderBy(t => t.CreatedAt).Select(t => new TodoDto(t.Id, t.Title, t.Description, t.CreatedAt))
+        return todos.OrderByDescending(t => t.CreatedAt).Select(t => new TodoDto(t.Id, t.Title, t.Description, t.CreatedAt))
             .ToList();
     }
 

@@ -1,6 +1,6 @@
 ﻿namespace TodoList.Domain.Entities;
 
-public sealed class Todo
+public class Todo
 {
     private const int MaxTitleLength = 100;
     private const int MaxDescriptionLength = 225;

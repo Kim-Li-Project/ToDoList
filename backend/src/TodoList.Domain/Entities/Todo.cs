@@ -3,7 +3,7 @@
 public class Todo
 {
     private const int MaxTitleLength = 100;
-    private const int MaxDescriptionLength = 225;
+    private const int MaxDescriptionLength = 255;
 
     public Guid Id { get;}
     public string Title { get; private set; }

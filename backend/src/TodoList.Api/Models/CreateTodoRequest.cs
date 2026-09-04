@@ -8,6 +8,6 @@ public sealed class CreateTodoRequest
     [MaxLength(100)]
     public string Title { get; set; } = string.Empty;
     
-    [MaxLength(225)]
+    [MaxLength(255)]
     public string? Description { get; set; }
 }

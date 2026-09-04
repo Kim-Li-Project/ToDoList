@@ -1,0 +1,83 @@
+@if (todos().length === 0) {
+  <div
+    class="rounded-xl border border-dashed border-slate-300 bg-white p-8 text-center text-slate-500"
+  >
+    No resource.
+  </div>
+} @else {
+  <div
+    class="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm"
+  >
+    <table class="min-w-full divide-y divide-slate-200">
+      <thead class="bg-slate-50">
+      <tr>
+        <th
+          scope="col"
+          class="px-5 py-3 text-left text-sm font-semibold text-slate-700"
+        >
+          Title
+        </th>
+
+        <th
+          scope="col"
+          class="px-5 py-3 text-left text-sm font-semibold text-slate-700"
+        >
+          Description
+        </th>
+
+        <th
+          scope="col"
+          class="px-5 py-3 text-left text-sm font-semibold text-slate-700"
+        >
+          Created
+        </th>
+
+        <th
+          scope="col"
+          class="px-5 py-3 text-right text-sm font-semibold text-slate-700"
+        >
+          Actions
+        </th>
+      </tr>
+      </thead>
+
+      <tbody class="divide-y divide-slate-200">
+        @for (todo of todos(); track todo.id) {
+          <tr class="hover:bg-slate-50">
+            <th
+              scope="row"
+              class="whitespace-nowrap px-5 py-4 text-left text-sm font-medium text-slate-900"
+            >
+              {{ todo.title }}
+            </th>
+
+            <td class="px-5 py-4 text-sm text-slate-600">
+              @if (todo.description) {
+                {{ todo.description }}
+              } @else {
+                <span class="text-slate-400">—</span>
+              }
+            </td>
+
+            <td
+              class="whitespace-nowrap px-5 py-4 text-sm text-slate-500"
+            >
+              {{ todo.createdAt | date: 'medium' }}
+            </td>
+
+            <td class="whitespace-nowrap px-5 py-4 text-right">
+              <button
+                type="button"
+                class="rounded-lg border border-red-200 bg-amber-900 px-3 py-2 text-sm font-medium text-white hover:border-red-300 hover:bg-red-50 hover:text-red-700"
+                [attr.aria-label]="'Delete ' + todo.title"
+                (click)="requestDelete(todo.id)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}
